@@ -7,6 +7,7 @@ module.exports = {
     Target.findOne({
       name: 'Opalescent Downloads'
     }).then((target) => {
+      console.log('Adding click...');
       if (target) {
         target.clicks++;
         target.save().then(res.send('Click added: ' + target.clicks));
