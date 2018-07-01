@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+const cors = require('cors');
 const path = require('path');
 const Promise = require('bluebird');
 
@@ -11,6 +12,9 @@ const CounterController = require('./controllers/counter.controller');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
+}));
+app.use(cors({
+  origin: '*'
 }));
 
 const LOCAL_SERVER_PORT = 3000;
