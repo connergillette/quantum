@@ -14,7 +14,7 @@ module.exports = {
         let newTarget = new Target();
         newTarget.clicks = 1;
         newTarget.name = 'Opalescent Downloads';
-        newTarget.save().then(res.send('Target created, click added: ' + target.clicks));
+        newTarget.save().then(res.send('Target created, click added: ' + newTarget.clicks));
       }
     });
   },
