@@ -6,7 +6,7 @@ module.exports = {
   addClick: (res) => {
     Target.findOne({
       name: 'Opalescent Downloads'
-    }).then((err, target) => {
+    }).then((target) => {
       if (target) {
         target.clicks++;
         target.save().then(res.send('Click added: ' + target.clicks));
@@ -23,7 +23,7 @@ module.exports = {
     console.log('Reading click count...');
     Target.findOne({
       name: 'Opalescent Downloads'
-    }).then((err, target) => {
+    }).then((target) => {
       console.log('findOne complete');
       if (target) {
         res.send("" + target.clicks);
