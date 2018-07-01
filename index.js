@@ -14,12 +14,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 const LOCAL_SERVER_PORT = 3000;
+const LOCAL_DB_URI = 'mongodb://127.0.0.1:27017';
 
 const server = app.listen(process.env.PORT || LOCAL_SERVER_PORT, () => {
   console.log('Server listening on port ' + LOCAL_SERVER_PORT);
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017', (err, db) => {
+mongoose.connect(process.env.MONGODB_URI || LOCAL_DB_URI, (err, db) => {
   if (!err) {
     console.log('Connected to MongoDB.');
   } else {
