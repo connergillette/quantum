@@ -23,7 +23,11 @@ module.exports = {
     Target.findOne({
       name: 'Opalescent Downloads'
     }).then((target) => {
-      res.send("" + target.clicks);
+      if (target) {
+        res.send("" + target.clicks);
+      } else {
+        res.send('0');
+      }
     });
   }
 };
