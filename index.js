@@ -20,7 +20,7 @@ const server = app.listen(process.env.PORT || LOCAL_SERVER_PORT, () => {
   console.log('Server listening on port ' + process.env.PORT || LOCAL_SERVER_PORT);
 });
 
-mongoose.connect(process.env.MONGODB_URI || LOCAL_DB_URI, (err, db) => {
+mongoose.connect(process.env.MONGODB_URI, (err, db) => {
   if (!err) {
     console.log('Connected to MongoDB.');
   } else {
