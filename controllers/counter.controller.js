@@ -20,9 +20,11 @@ module.exports = {
   },
 
   readClick: (res) => {
+    console.log('Reading click count...');
     Target.findOne({
       name: 'Opalescent Downloads'
     }).then((target) => {
+      console.log('findOne complete');
       if (target) {
         res.send("" + target.clicks);
       } else {
