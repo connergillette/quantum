@@ -35,9 +35,7 @@ mongoose.connect(MONGODB_URI, (err, db) => {
 // Endpoints
 
 app.get('/', function (req, res) {
-  console.log("GET");
-  res.send('hello world');
-  // CounterController.readClick(res);
+  CounterController.readClick(res);
 });
 
 app.post('/', function (req, res) {
