@@ -16,11 +16,15 @@ app.use(bodyParser.urlencoded({
 const LOCAL_SERVER_PORT = 3000;
 const LOCAL_DB_URI = 'mongodb://127.0.0.1:27017';
 
+const MONGODB_URI = process.env.MONGODB_URI;
+
+console.log(MONGODB_URI);
+
 const server = app.listen(process.env.PORT || LOCAL_SERVER_PORT, () => {
   console.log('Server listening on port ' + process.env.PORT || LOCAL_SERVER_PORT);
 });
 
-mongoose.connect(process.env.MONGODB_URI, (err, db) => {
+mongoose.connect(MONGODB_URI, (err, db) => {
   if (!err) {
     console.log('Connected to MongoDB through mLab.');
   } else {
@@ -31,6 +35,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
 // Endpoints
 
 app.get('/', function (req, res) {
+  console.log("GET");
   CounterController.readClick(res);
 });
 
